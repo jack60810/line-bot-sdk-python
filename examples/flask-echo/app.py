@@ -64,11 +64,11 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
-        @handler.add(MessageEvent, message=TextMessage)
-
+        
         user_id = event.source.user_id
         print("user_id =", user_id)
         print("id =", event.source.id)
+        
         tt = event.message.text
         line_bot_api.reply_message(
             event.reply_token,
