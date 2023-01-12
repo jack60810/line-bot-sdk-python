@@ -64,7 +64,12 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
-        tt = event.message.text + '頻道 ID:' + event.Source.Id + '用戶 ID' + event.Source.UserId
+        @handler.add(MessageEvent, message=TextMessage)
+
+        user_id = event.source.user_id
+        print("user_id =", user_id)
+        print("id =", event.source.id)
+        tt = event.message.text
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text= tt)
