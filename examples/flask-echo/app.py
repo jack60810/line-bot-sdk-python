@@ -67,7 +67,7 @@ def callback():
         
         user_id = event.source.user_id
         print("user_id =", user_id)
-        print("id =", event.source.id)
+        print("room_id =", event.source.room_id)
         
         tt = event.message.text
         line_bot_api.reply_message(
