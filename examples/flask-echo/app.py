@@ -67,7 +67,7 @@ def callback():
         
         user_id = event.source.user_id
         print("user_id =", user_id)
-        print("room_id =", event.source.group_id)
+        #print("room_id =", event.source.group_id)
         if user_id == 'U51456d8305d41ebe90d67fd3db3a7c59': 
             tt = event.message.text
             try:
