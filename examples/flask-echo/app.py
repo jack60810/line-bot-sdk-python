@@ -74,7 +74,7 @@ def callback():
             if event.source.type == 'user' :#& typee == 'user': 
                 tt = event.message.text
                 try:
-                    line_bot_api.push_message('U51456d8305d41ebe90d67fd3db3a7c59', TextSendMessage(text=tt+' orz')) #Cb9601c1295de74756ab8280899e15c92
+                    line_bot_api.push_message('Cb9601c1295de74756ab8280899e15c92', TextSendMessage(text=tt)) #Cb9601c1295de74756ab8280899e15c92
                 except LineBotApiError as e:
                     print(e)
         #line_bot_api.reply_message(
