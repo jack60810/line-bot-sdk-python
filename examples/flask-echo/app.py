@@ -66,9 +66,10 @@ def callback():
             continue
         
         user_id = event.source.user_id
+        typee = event.source.type
         print("user_id =", user_id)
-        print("room_id =", event.source.type)
-        if user_id == 'U51456d8305d41ebe90d67fd3db3a7c59': 
+        print("type =",event.source.type )
+        if user_id == 'U51456d8305d41ebe90d67fd3db3a7c59' & typee == 'user': 
             tt = event.message.text
             try:
                 line_bot_api.push_message('U51456d8305d41ebe90d67fd3db3a7c59', TextSendMessage(text=tt+' orz')) #Cb9601c1295de74756ab8280899e15c92
