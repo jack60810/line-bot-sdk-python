@@ -60,7 +60,9 @@ def chatbot(message):
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
         model=openai_model,
-        messages=chat_history
+        messages=chat_history,
+        max_tokens = 1000,
+        top_p = 1
     ).choices[0].message.content.strip()
 
     # Append the chatbot's response to the chat history
