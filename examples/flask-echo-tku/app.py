@@ -59,7 +59,7 @@ def chatbot(message):
     if len(chat_history) >= 5:
         chat_history.pop(0)
     # Append the user's message to the chat history
-    chat_history.append({'role': 'system', 'content': message})
+    chat_history.append({'role': 'user', 'content': message})
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
         model=openai_model,
