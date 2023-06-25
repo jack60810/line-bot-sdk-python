@@ -55,17 +55,10 @@ chat_history = []
 # Define the chatbot function
 def chatbot(message):
     # Append the user's message to the chat history
-    chat_history.append({'role': 'system', 'content': message})
-    cht_len = len(chat_history)
-    if cht_len > 5 : 
-        chat_history = chat_history[(cht_len-5):cht_len]
-    else : 
-        chat_history = chat_history
-
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
         model=openai_model,
-        messages=chat_history,
+        messages=[{'role': 'system', 'content': message}],
         max_tokens = 1000,
         top_p = 1
     ).choices[0].message.content.strip()
