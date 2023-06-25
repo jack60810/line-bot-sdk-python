@@ -52,13 +52,18 @@ openai_model = 'gpt-3.5-turbo'  # or use 'davinci-codex' for a more focused mode
 # Initialize chat history
 chat_history = []
 
+
 # Define the chatbot function
 def chatbot(message):
     # Append the user's message to the chat history
+    if len(chat_history) >= 5:
+        chat_history.pop(0)
+    # Append the user's message to the chat history
+    chat_history.append({'role': 'system', 'content': message})
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
         model=openai_model,
-        messages=[{'role': 'system', 'content': message}],
+        messages=chat_history,
         max_tokens = 1000,
         top_p = 1
     ).choices[0].message.content.strip()
