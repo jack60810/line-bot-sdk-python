@@ -58,14 +58,14 @@ def chatbot(message):
     chat_history.append({'role': 'system', 'content': message})
     cht_len = len(chat_history)
     if cht_len > 5 : 
-        chat_history_to = chat_history[(cht_len-5):cht_len]
+        chat_history = chat_history[(cht_len-5):cht_len]
     else : 
-        chat_history_to = chat_history
+        chat_history = chat_history
 
     # Generate response using ChatGPT
     response = openai.ChatCompletion.create(
         model=openai_model,
-        messages=chat_history_to,
+        messages=chat_history,
         max_tokens = 1000,
         top_p = 1
     ).choices[0].message.content.strip()
